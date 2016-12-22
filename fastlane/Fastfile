@@ -1,0 +1,7 @@
+lane :test do
+  xcpretty_report(
+    buildlog_path: 'fastlane',
+    output_path: 'fastlane/reports',
+    use_json_formatter: true
+  )
+end
