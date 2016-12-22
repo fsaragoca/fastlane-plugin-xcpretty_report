@@ -15,7 +15,7 @@ fastlane add_plugin xcpretty_report
 
 ## About xcpretty_report
 
-Generate xcodebuild reports using [xcpretty](supermarin/xcpretty).
+Generate xcodebuild reports using [xcpretty](https://github.com/supermarin/xcpretty).
 
 ## Example
 
