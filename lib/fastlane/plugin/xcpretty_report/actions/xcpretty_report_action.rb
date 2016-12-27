@@ -6,19 +6,19 @@ module Fastlane
 
         output_path = params[:output_path]
         unless File.exist?(output_path)
-          Actions.sh("mkdir #{output_path}", log: $verbose)
+          Actions.sh("mkdir '#{output_path}'", log: $verbose)
         end
 
         reports = ''
         params[:types].each do |report|
           path = File.join(output_path, params[:name]) + "." + report
-          reports << "--report #{report} --output #{path} "
+          reports << "--report '#{report}' --output '#{path}' "
         end
-        Actions.sh("cat #{log_file} | bundle exec xcpretty #{reports}", log: $verbose)
+        Actions.sh("cat '#{log_file}' | bundle exec xcpretty #{reports}", log: $verbose)
 
         if params[:use_json_formatter]
           path = File.join(output_path, params[:name]) + ".json"
-          Actions.sh("cat #{log_file} | XCPRETTY_JSON_FILE_OUTPUT=#{path} bundle exec xcpretty -f `xcpretty-json-formatter`", log: $verbose)
+          Actions.sh("cat '#{log_file}' | XCPRETTY_JSON_FILE_OUTPUT='#{path}' bundle exec xcpretty -f `xcpretty-json-formatter`", log: $verbose)
         end
       end
 
